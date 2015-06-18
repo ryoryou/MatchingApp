@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MatchingApp</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_contact">Contact</string>
+    <string name="title_activity_contacted_user">ContactedUser</string>
+    <string name="title_activity_contact_list">ContactList</string>
+    <string name="title_activity_coords">Coords</string>
+    <string name="title_activity_log_in">LogInActivity</string>
+    <string name="title_activity_message_window">MessageWindow</string>
+    <string name="title_activity_my_profile">MyProfile</string>
+    <string name="title_activity_user_profile">UserProfile</string>
+</resources>

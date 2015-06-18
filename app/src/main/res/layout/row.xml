@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/ll">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ic_launcher"
+                android:background="#dddddd"
+                android:id="@+id/row_profileImage" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:paddingLeft="10dp"
+                android:layout_height="60dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_weight="3"
+                    android:layout_width="fill_parent"
+                    android:paddingTop="5dp"
+                    android:layout_height="0dp">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="3"
+                        android:text="Ryo Atsuta"
+                        android:textSize="18sp"
+                        android:textColor="#000000"
+                        android:id="@+id/row_profileName" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:textSize="15sp"
+                        android:text="0.9 km"
+                        android:layout_gravity="right"
+                        android:id="@+id/row_distance"
+                        android:phoneNumber="false"
+                        android:password="false" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="15dp"
+            android:text="I have money and I want a lot of girl. I like an apple lskdjfljsk lksjdlfkjs lskjdlfkjsdf ljsdlfkjsldfj lksjdlfkjsd lksjdlfkjs lkjsdlkfjs lksdjf lkjsdlfkj lkjdfk lkjsdlkfj fd"
+            android:id="@+id/row_description"
+            android:layout_marginBottom="7dp"
+            android:layout_marginRight="7dp"
+            android:longClickable="false" />
+    </LinearLayout>
+</LinearLayout>
