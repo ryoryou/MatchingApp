@@ -14,6 +14,7 @@
             android:layout_weight="15"
             android:id="@+id/contactList_list" />
 
+
         <Button
             android:layout_width="fill_parent"
             android:layout_height="0dp"

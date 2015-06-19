@@ -94,7 +94,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textSize="20dp"
-            android:text="setting"
+            android:text="Log Out"
+            android:onClick="onClickSettingButton"
             android:id="@+id/settingButton" />
 
         <TextView

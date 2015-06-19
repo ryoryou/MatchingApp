@@ -29,6 +29,16 @@ public class Contact extends AppCompatActivity {
 
     public final static String EXTRA_OTHER_EMAIL = "com.example.ryo.matchingapp.OTHER_EMAIL";
 
+    private ArrayList<User> removeAPersonFromArrayList(ArrayList<User> users, String theEmail){
+        for(int i = 0; i < users.size(); i++){
+            if(theEmail.equals(users.get(i).getEmail())){
+                users.remove(i);
+                return users;
+            }
+        }
+        return users;
+    }
+
     private ArrayList<User> keepAllUsersWithin(ArrayList<User> users, int km) {
 
         ArrayList<User> userList = new ArrayList<User>();
@@ -78,7 +88,6 @@ public class Contact extends AppCompatActivity {
 
         if(c == null) {
             db.close();
-            c.close();
             return null;
         }
 
@@ -117,20 +126,24 @@ public class Contact extends AppCompatActivity {
         myUser.loadAUserInfoFromUserDB(new UserOpenHelper(this), myUserEmail);
         users = loadAllUsers();
         users = keepAllUsersWithin(users, 5);
-        UserAdapter userAdapter = new UserAdapter(this, 0, users);
-        final ListView myContactList = (ListView) findViewById(R.id.myContactList);
-        myContactList.setAdapter(userAdapter);
 
-        myContactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(Contact.this, UserProfile.class);
-                MainActivity.OTHER_EMAIL = users.get(i).getEmail();
-                MainActivity.OTHER_PASSWORD = users.get(i).getPassword();
-                Toast.makeText(Contact.this, MainActivity.OTHER_EMAIL + " " + MainActivity.OTHER_PASSWORD, Toast.LENGTH_LONG).show();//////////////////
-                startActivity(intent);
-            }
-        });
+        if(users != null) {
+            users = removeAPersonFromArrayList(users, myUserEmail);
+            UserAdapter userAdapter = new UserAdapter(this, 0, users);
+            final ListView myContactList = (ListView) findViewById(R.id.myContactList);
+            myContactList.setAdapter(userAdapter);
+
+            myContactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Intent intent = new Intent(Contact.this, UserProfile.class);
+                    MainActivity.OTHER_EMAIL = users.get(i).getEmail();
+                    MainActivity.OTHER_PASSWORD = users.get(i).getPassword();
+                    Toast.makeText(Contact.this, MainActivity.OTHER_EMAIL + " " + MainActivity.OTHER_PASSWORD, Toast.LENGTH_LONG).show();//////////////////
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
 

@@ -46,7 +46,6 @@ public class ContactList extends AppCompatActivity {
         );
 
         if(c == null) {
-            c.close();
             db.close();
             return null;
         }
@@ -150,21 +149,22 @@ public class ContactList extends AppCompatActivity {
         myUser.loadAUserInfoFromUserDB(new UserOpenHelper(this), myUserEmail);
         users = new ArrayList<User>();
         users = loadAllContactedUsers(new UserOpenHelper(this), myUserEmail, myUserPassword);
-        UserAdapter userAdapter = new UserAdapter(this, 0, users);
         final ListView myContactList = (ListView) findViewById(R.id.contactList_list);
-        myContactList.setAdapter(userAdapter);
+        if(users != null) {
+            UserAdapter userAdapter = new UserAdapter(this, 0, users);
+            myContactList.setAdapter(userAdapter);
 
-        myContactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //???intent
-                Intent intent = new Intent(ContactList.this, MessageWindow.class);
-                MainActivity.OTHER_EMAIL = users.get(i).getEmail();
-                MainActivity.OTHER_PASSWORD = users.get(i).getPassword();
-                startActivity(intent);
-            }
-        });
-
+            myContactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    //???intent
+                    Intent intent = new Intent(ContactList.this, MessageWindow.class);
+                    MainActivity.OTHER_EMAIL = users.get(i).getEmail();
+                    MainActivity.OTHER_PASSWORD = users.get(i).getPassword();
+                    startActivity(intent);
+                }
+            });
+        }
 
     }
 
@@ -221,6 +221,8 @@ public class ContactList extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -242,4 +244,5 @@ public class ContactList extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

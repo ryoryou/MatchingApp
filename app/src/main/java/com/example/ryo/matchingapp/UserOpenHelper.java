@@ -14,7 +14,7 @@ public class UserOpenHelper extends SQLiteOpenHelper {
     }
 
     public static final String DB_NAME = "matchingApp.db";
-    public static final int DB_VERSION = 2;
+    public static final int DB_VERSION = 4;
 
 
 

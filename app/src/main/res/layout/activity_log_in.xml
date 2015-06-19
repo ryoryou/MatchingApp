@@ -14,6 +14,13 @@
 
             <TextView
                 android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:text="Matching App"
+                android:gravity="center"
+                android:id="@+id/textView6" />
+
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="12"
                 android:id="@+id/textView4" />
@@ -56,9 +63,22 @@
 
             <TextView
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="0"
                 android:id="@+id/textView3" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:text="Register Account"
+                android:onClick="onClickRegisterAccountButton"
+                android:id="@+id/registerAccountButton" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/textView5" />
         </LinearLayout>
     </FrameLayout>
 

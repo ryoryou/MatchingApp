@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ryo.matchingapp.RegisterAccountActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:id="@+id/blank1" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:hint="Enter User Name"
+                android:id="@+id/registeringUserName" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:id="@+id/blank2" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:hint="Enter Email"
+                android:id="@+id/registeringEmail" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:id="@+id/blank3" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:hint="Enter"
+                android:id="@+id/registeringPassword" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:id="@+id/blank4" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Back"
+                android:onClick="onClickBackButton"
+                android:id="@+id/register_backButton" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Create Account"
+                android:onClick="onClickCreateAccountButton"
+                android:id="@+id/createAccountButton" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

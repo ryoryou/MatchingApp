@@ -53,89 +53,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         mLocationManager = (LocationManager) this.getSystemService(Service.LOCATION_SERVICE);
         user = new User();
         requestLocationUpdates();
- /*
-        if (isNew) {
-            user.setUser_name("Ryo Atsuta");
-            user.setUser_summary("I want to become rich!!!");
-            user.setEmail(EMAIL);
-            user.setPassword(PASSWORD);
-            user.insertAnUserInfoIntoDB(new UserOpenHelper(this));
-            isNew = false;
-*/
-//        } else {
         user.loadAUserInfoFromUserDB(new UserOpenHelper(this), EMAIL);
-//        }
         TextView nameTextView = (TextView) findViewById(R.id.userName);
         nameTextView.setText(user.getUser_name());
-
-        /*
-        user.setUser_name("Atsuta Ryo");
-        user.setUser_summary("I want to become rich!!!");
-        user.setEmail("aaa@aaa.com");
-        user.setPassword("aaaa");
-        user.insertAnUserInfoIntoDB(new UserOpenHelper(this));
-
-        user.setUser_name("Matsumoto Yuki");
-        user.setUser_summary("I want to become rich!!!");
-        user.setEmail("bbb@bbb.com");
-        user.setPassword("bbbb");
-        user.insertAnUserInfoIntoDB(new UserOpenHelper(this));
-
-        user.setUser_name("Aomori Ken");
-        user.setUser_summary("I am Prefecture!!!");
-        user.setEmail("ccc@ccc.com");
-        user.setPassword("cccc");
-        user.insertAnUserInfoIntoDB(new UserOpenHelper(this));
-
-        user.setUser_name("Kagawa Ken");
-        user.setUser_summary("I am Prefecture?");
-        user.setEmail("ddd@ddd.com");
-        user.setPassword("dddd");
-        user.insertAnUserInfoIntoDB(new UserOpenHelper(this));
-
-
-
-
-
-        Message aMessage = new Message();
-
-        aMessage.setUserEmail("aaa@aaa.com");
-        aMessage.setOtherUserEmail("bbb@bbb.com");
-        aMessage.setUserName("Ryo Atsuta");
-        aMessage.setUserMessage("This is Test");
-//        aMessage.setUserTime();
-//        aMessage.setUserImage();
-        aMessage.insertAMessageIntoDB(new UserOpenHelper(this));
-        aMessage.setUserEmail("bbb@bbb.com");
-        aMessage.setOtherUserEmail("aaa@aaa.com");
-//        Toast.makeText(this, anUserEmail + " " + myUserEmail, Toast.LENGTH_LONG).show();
-        aMessage.insertAMessageIntoDB(new UserOpenHelper(this));
-
-
-        aMessage.setUserEmail("aaa@aaa.com");
-        aMessage.setOtherUserEmail("ccc@ccc.com");
-        aMessage.setUserName("Ryo Atsuta");
-        aMessage.setUserMessage("This is Test");
-//        aMessage.setUserTime();
-//        aMessage.setUserImage();
-        aMessage.insertAMessageIntoDB(new UserOpenHelper(this));
-        aMessage.setUserEmail("ccc@ccc.com");
-        aMessage.setOtherUserEmail("aaa@aaa.com");
-//        Toast.makeText(this, anUserEmail + " " + myUserEmail, Toast.LENGTH_LONG).show();
-        aMessage.insertAMessageIntoDB(new UserOpenHelper(this));
-
-        aMessage.setUserEmail("aaa@aaa.com");
-        aMessage.setOtherUserEmail("ddd@ddd.com");
-        aMessage.setUserName("Ryo Atsuta");
-        aMessage.setUserMessage("This is Test");
-//        aMessage.setUserTime();
-//        aMessage.setUserImage();
-        aMessage.insertAMessageIntoDB(new UserOpenHelper(this));
-        aMessage.setUserEmail("ddd@ddd.com");
-        aMessage.setOtherUserEmail("aaa@aaa.com");
-//        Toast.makeText(this, anUserEmail + " " + myUserEmail, Toast.LENGTH_LONG).show();
-        aMessage.insertAMessageIntoDB(new UserOpenHelper(this));
-*/
     }
 
     public void clickedContactButton(View view){
@@ -150,6 +70,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     public void clickedListButton(View view){
         Intent intent = new Intent(this, ContactList.class);
+        startActivity(intent);
+    }
+
+    public void onClickSettingButton(View view){
+        Intent intent = new Intent(this, LogInActivity.class);
         startActivity(intent);
     }
 

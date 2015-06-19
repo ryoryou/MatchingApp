@@ -115,6 +115,11 @@ public class LogInActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickRegisterAccountButton(View view){
+        Intent intent = new Intent(this, RegisterAccountActivity.class);
+        startActivity(intent);
+    }
+
     private ArrayList<User> loadAllUsers(){
         UserOpenHelper userOpenHelper = new UserOpenHelper(this);
         SQLiteDatabase db = userOpenHelper.getWritableDatabase();
@@ -157,6 +162,9 @@ public class LogInActivity extends AppCompatActivity {
     private boolean existsInDB(String email, String password) {
         ArrayList<User> users;
         users = loadAllUsers();
+        if(users == null){
+            return false;
+        }
         for(int i = 0; i < users.size(); i++){
             if(email.equals(users.get(i).getEmail()) && password.equals(users.get(i).getPassword())){
                 return true;

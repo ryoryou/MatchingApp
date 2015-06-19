@@ -103,9 +103,11 @@ public class MessageWindow extends AppCompatActivity {
         myUser.loadAUserInfoFromUserDB(new UserOpenHelper(this), myUserEmail);
 
         messages = loadMessages(myUserEmail, anUserEmail);
-        MessageAdapter messageAdapter = new MessageAdapter(this, 0, messages);
-        final ListView myMessageList = (ListView) findViewById(R.id.message_window_messageList);
-        myMessageList.setAdapter(messageAdapter);
+        if(messages != null) {
+            MessageAdapter messageAdapter = new MessageAdapter(this, 0, messages);
+            final ListView myMessageList = (ListView) findViewById(R.id.message_window_messageList);
+            myMessageList.setAdapter(messageAdapter);
+        }
     }
 
 
